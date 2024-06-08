@@ -1,0 +1,48 @@
+<div class="login-form-flex">
+    <mat-card>
+            <mat-card-title class="card-title">
+                  <div class="title"> Registration</div> 
+            </mat-card-title>
+            <mat-card-content>
+                   <form [formGroup]="registerForm"  (submit)="onSubmit()">
+                    <label>Username:</label>
+                            <mat-form-field>
+                                
+                                    <input matInput type="text"  formControlName="username" [ngClass]="{'is-invalid':submitted && registerForm.controls?.['username']?.errors}">
+                            </mat-form-field>
+                            <br />
+                            <label>Password:</label> 
+                            <mat-form-field>
+                               
+                                    <input matInput type="password" formControlName="password" [ngClass]="{'is-invalid':submitted && registerForm.controls?.['password']?.errors}"/>
+                            </mat-form-field>
+                            <br/>
+                            <label>Name:</label> 
+                            <mat-form-field>
+                                <input matInput type="text" formControlName="name" [ngClass]="{'is-invalid':submitted && registerForm.controls?.['name']?.errors}"/>
+                        </mat-form-field>
+                        <br/>
+                        <label>Surname:</label> 
+                        <mat-form-field>
+                            <input matInput type="text" formControlName="surname"  [ngClass]="{'is-invalid':submitted && registerForm.controls?.['surname']?.errors}"/>
+                    </mat-form-field>
+                    <br/>
+                    <label>Email:</label> 
+                    <mat-form-field>
+                        <input matInput type="email" formControlName="email"  [ngClass]="{'is-invalid':submitted && registerForm.controls?.['email']?.errors}"/>
+                </mat-form-field>
+                <br/>
+                    <br/>
+<div class="button-flex-container">
+    <button  type="submit" mat-raised-button color="primary" >Register</button>
+</div>
+                                    
+                          
+                           
+                    </form>
+                   
+            </mat-card-content>
+
+
+    </mat-card>
+</div>

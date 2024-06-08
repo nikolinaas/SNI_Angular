@@ -1,0 +1,40 @@
+
+  mat-list-item {
+    display: flex;
+    height: auto;
+    width: auto;
+    vertical-align: center;
+    text-align: center;
+  }
+
+  .toolbar{
+    justify-content: center;
+    display: flex;
+    background-color: #76E18E;
+    color: white;
+    font-size: 30px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #e176c9;
+  }
+a{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+  .list-horizontal{
+    padding: 0;
+    align-items: center;
+    vertical-align: center;
+    display: flex;
+    background-color: #70D486;
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .div-nav{
+    display: flex;
+ 
+    height: 100%;
+  }
+ 

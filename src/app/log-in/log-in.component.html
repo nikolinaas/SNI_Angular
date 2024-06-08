@@ -1,7 +1,7 @@
 <div class="login-form-flex">
         <mat-card>
                 <mat-card-title class="card-title">
-                        Login
+                      <div class="title"> Login</div> 
                 </mat-card-title>
                 <mat-card-content>
                        <form [formGroup]="myForm"  (submit)="onSubmit()">
@@ -21,6 +21,15 @@
                               
                                
                         </form>
+                        <div class="register">
+                                Register&nbsp; <a class="navigation" (click)="navigate()"> here </a> &nbsp;if you don't have account!
+                        </div>
+                        <div class="register1">
+                                Or 
+                          </div>
+                        <div class="register2">
+                              Login with github
+                        </div>
                 </mat-card-content>
 
 
