@@ -15,41 +15,33 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import { RegisterComponent } from './register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { VerifyCodeComponent } from './verify-code/verify-code.component';
 import {MatDialogModule,MatDialog, MatDialogRef   } from '@angular/material/dialog';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LogInComponent,
-    HomeComponent,
-    RegisterComponent,
-    VerifyCodeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    MatDialogModule,
-    
-    
-  ],
-  providers: [
-    {
-      provide: MatDialogRef,
-      useValue: {}
-    },
+@NgModule({ declarations: [
+        AppComponent,
+        LogInComponent,
+        HomeComponent,
+        RegisterComponent,
+        VerifyCodeComponent
     ],
-  bootstrap: [AppComponent]
-})
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        MatDialogModule], providers: [
+        {
+            provide: MatDialogRef,
+            useValue: {}
+        },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
