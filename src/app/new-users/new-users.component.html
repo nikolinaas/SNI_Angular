@@ -1,0 +1,38 @@
+
+<div class="buttons">
+
+</div>
+
+    <div class="content">
+        <table mat-table  class="mat-elevation-z8 demo-table" >
+
+        
+            <tr>
+              <th mat-header-cell>Name</th>
+              <th mat-header-cell >Surname</th>
+              <th mat-header-cell >Username</th>
+              <th mat-header-cell >Email</th>
+              <th mat-header-cell >Role</th>
+            </tr>
+            <tr *ngFor="let user of dataSource">
+              <td mat-cell >{{user.name}}</td>
+              <td mat-cell>{{user.surname}}</td>
+              <td mat-cell>{{user.username}}</td>
+              <td mat-cell>{{user.email}}</td>
+              <td mat-cell (click)="changeRole()">{{user.role}}</td>
+              <td mat-cell><button mat-flat-button color="green" (click)="activateUser(user.id)">Activate</button></td>
+              <td mat-cell><button mat-flat-button color="green" (click)="activateUser(user.id)">Permissions</button></td>
+            </tr>
+           
+                    
+                  
+                  
+                
+          
+                </table>
+    </div>
+   
+
+
+
+

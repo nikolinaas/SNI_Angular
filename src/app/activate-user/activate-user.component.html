@@ -1,0 +1,38 @@
+<div>
+    <mat-card>
+        <mat-card-title class="card-title">
+              <div class="title"> User activation</div> 
+        </mat-card-title>
+        <mat-card-content>
+               <form [formGroup]="myForm"  (submit)="onSubmit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>User role</mat-label>
+                   
+                 <mat-select name="ampm" class="ampm" >
+                      <mat-option value="USER">USER</mat-option>
+                      <mat-option value="MODERATOR">MODERATOR</mat-option>
+                      <mat-option value="ADMIN">ADMIN</mat-option>
+                 </mat-select>
+               </mat-form-field>
+                        <br />
+                        <section class="example-section" [formGroup]="permissions">
+                            <h4>Select user permissions:</h4>
+                            <div *ngFor="let perm of permissions">
+                                <input value="{{perm.id}}"  type="checkbox" formControlName="pepperoni">{{perm.permissionName}}
+                            </div>
+                            
+                          </section>
+                        <br/>
+    <div class="button-flex-container">
+    <button  type="submit" mat-raised-button  color="secondary">Activate</button>
+    </div>
+                                
+                      
+                       
+                </form>
+              
+        </mat-card-content>
+    
+    
+    </mat-card>
+</div>

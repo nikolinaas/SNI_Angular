@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ModeratorCanActivateService implements CanActivateFn{
+export class ModeratorCanActivateService implements CanActivate{
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private authService:AuthenticationService) { 
 
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
 
    
-      if()
-      return true;
+      if(this.authService.getRole()=="MODERATOR"){
+        return true;
+      }
+      
+      return this.router.parseUrl('/unauthorized');
     }
 
   

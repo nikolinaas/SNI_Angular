@@ -5,16 +5,17 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AdminCanActivateService implements CanActivate{
+export class UserCanActivateService implements CanActivate{
 
-  constructor(private authService:AuthenticationService, private router:Router) { }
+  constructor(private router:Router, private authService:AuthenticationService) { }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-
-    if(this.authService.getRole()=="ADMIN"){
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
+   
+    if(this.authService.getRole()=="USER"){
       return true;
-    }else  
+    }else{
       return this.router.parseUrl('/unauthorized');
-    
+    }
+
   }
 }

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { VerifyCodeComponent } from '../verify-code/verify-code.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-log-in',
@@ -22,7 +23,7 @@ export class LogInComponent {
 
 
 
-  constructor(private router: Router, private authService: AuthenticationService,public dialogRef: MatDialogRef<VerifyCodeComponent>, private dialog:MatDialog) {
+  constructor(private router: Router, private authService: AuthenticationService, public dialogRef: MatDialogRef<VerifyCodeComponent>, private dialog: MatDialog) {
 
     this.myForm = new FormGroup({
       username: new FormControl(),
@@ -41,12 +42,20 @@ export class LogInComponent {
       password: this.myForm.get('password').value
 
     }
+    
     this.authService.login(logReq).subscribe((user) => {
       console.log(user);
       if (user != null) {
-        this.dialog.open(VerifyCodeComponent, { disableClose: true , data : user});
+        this.dialog.open(VerifyCodeComponent, { disableClose: true, data: user });
+      } 
+      else{
+        Swal.fire("Registracija Vašeg naloga nije odobrena!", "Pokušajte kasnije nakon što administrator odobri, bićete obaviješteni putem email-a.", "error");
       }
-    })
+    },(error) => {
+      if(error.status===403){
+        Swal.fire("Wrong credentials", "Credentials you entered are wrong, try again", "error");
+      }
+  })
 
   }
 }

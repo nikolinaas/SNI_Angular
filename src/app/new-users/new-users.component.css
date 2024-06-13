@@ -1,0 +1,57 @@
+
+.content{
+
+    display: flex;
+    width: 100%;
+    
+    justify-content: center;
+    height: 80%;
+
+}
+
+.buttons{
+    display: flex;
+    height: 10%;
+}
+.demo-table {
+    width: 80%;
+    height: 100%;
+    overflow: auto;
+    border-collapse: collapse;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  th{
+    height: 5%;
+    border-bottom: 1px solid #76E18E;
+  }
+  
+  td {
+
+    text-align: center;
+    height: 3%;
+  }
+ 
+  
+  td.mat-cell {
+    /* row padding */
+    padding: 20px 0;
+    border: none;
+  }
+  
+  tr.mat-row {
+    /* row border */
+    border-bottom: 1px solid #ffa600;
+  }
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
+
+  tr{
+    border-bottom: 1px solid #76E18E;
+    border-top: 1px solid #76E18E;
+   
+
+  }

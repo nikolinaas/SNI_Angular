@@ -1,32 +1,82 @@
-<mat-toolbar class="toolbar">
-    Internet forum
-  </mat-toolbar>
-
-    <mat-nav-list class="list-horizontal">
- <div class="div-nav">
-    <mat-list-item>
-      <a href="">Nauka</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a href="">Kultura</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a href>Sport</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a href>Muzika</a>
-      </mat-list-item>
- </div>     
- <div class="div-nav">
-    <mat-list-item>
-        <a href>Nalog</a>
-      </mat-list-item>
-      <mat-list-item>
-        <a href>Odjavi se</a>
-      </mat-list-item>
- </div>
-    </mat-nav-list>
-
-  <div class="basic-container">
-    
+<div class="main">
+  <div class="top">
+    <div class="toolbar">
+    <mat-toolbar >
+      Internet forum
+    </mat-toolbar>
   </div>
+ 
+    
+    <div class="menu">
+      <mat-nav-list class="list-horizontal">
+        <div class="div-nav">
+          <mat-list-item mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon class="white-icon">more_vert</mat-icon>
+            <span class="label-menu">Themes</span>
+          </mat-list-item>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>music_note</mat-icon>
+              <span>Music</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>account_balance</mat-icon>
+              <span>Culture</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>pool</mat-icon>
+              <span>Sport</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>explore</mat-icon>
+              <span>Science</span>
+            </button>
+          </mat-menu>
+        </div>
+        <div class="div-nav">
+          <mat-list-item *ngIf="isRoleAdmin" mat-button [matMenuTriggerFor]="adminMenu"
+            aria-label="Example icon-button with a menu" class="menu-button">
+            <mat-icon class="white-icon">settings</mat-icon>
+            <span class="label-menu">Administrator management</span>
+          </mat-list-item>
+          <mat-menu #adminMenu="matMenu">
+  
+            <button mat-menu-item (click)="showUsers($event)">
+              <mat-icon>supervisor_account</mat-icon>
+              <span>Users</span>
+            </button>
+  
+          </mat-menu>
+          <mat-list-item *ngIf="isRoleModerator" mat-button [matMenuTriggerFor]="moderatorMenu"
+            aria-label="Example icon-button with a menu" class="menu-button">
+            <mat-icon class="white-icon">settings</mat-icon>
+            <span class="label-menu">Moderator management</span>
+          </mat-list-item>
+          <mat-menu #moderatorMenu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>comment</mat-icon>
+              <span>Comments</span>
+            </button>
+  
+          </mat-menu>
+          <mat-list-item>
+            <a href><mat-icon>perm_identity</mat-icon></a>
+          </mat-list-item>
+          <mat-list-item>
+            <a href><mat-icon>logout</mat-icon></a>
+          </mat-list-item>
+        </div>
+      </mat-nav-list>
+    </div>
+  </div>
+  
+  <div  class="content">
+   <router-outlet></router-outlet>
+  </div>
+
+
+
+
+
+
+</div>
