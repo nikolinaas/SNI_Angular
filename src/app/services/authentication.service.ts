@@ -18,9 +18,7 @@ export class AuthenticationService {
 
   register(user: any) {
 
-    this.http.post(this.registerUserURL, user).subscribe(data => {
-      console.log(data);
-    })
+   return this.http.post(this.registerUserURL, user, {observe : 'response'});
 
   }
 

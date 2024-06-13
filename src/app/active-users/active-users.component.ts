@@ -1,26 +1,25 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { CommonModule } from '@angular/common';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '../services/user.service';
 import { ActivateUserComponent } from '../activate-user/activate-user.component';
-import { AddPermissionsComponent } from '../add-permissions/add-permissions.component';
-import { ChangeRoleComponent } from '../change-role/change-role.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthenticationService } from '../services/authentication.service';
-import { ActivatedRoute, Router } from '@angular/router';
-
-
+import { ActivatedRoute } from '@angular/router';
+import { ChangeRoleComponent } from '../change-role/change-role.component';
+import { AddPermissionsComponent } from '../add-permissions/add-permissions.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-new-users',
+  selector: 'app-active-users',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './new-users.component.html',
-  styleUrl: './new-users.component.css'
+  templateUrl: './active-users.component.html',
+  styleUrl: './active-users.component.css'
 })
-export class NewUsersComponent implements OnInit{
+export class ActiveUsersComponent {
 
 
+  
   isNewUsers : any;
   show : boolean = true;
   dataSource:any;
@@ -31,27 +30,20 @@ export class NewUsersComponent implements OnInit{
   constructor(private userService:UserService,public dialogRef: MatDialogRef<ActivateUserComponent>, private dialog: MatDialog, private authService:AuthenticationService, private route:ActivatedRoute){}
 
   ngOnInit(){
-    this.isNewUsers = this.route.snapshot.paramMap.get("id");
-    console.log(this.isNewUsers)
-    if (this.isNewUsers==0) {
-      console.log("aktivniiiiiiiiiiiii")
-     this.show = false;
+ 
+    
       this.userService.getUsersActive().subscribe((data) => {
         this.dataSource = data;
         console.log(data)});
-    }else{
-      this.userService.getUsersUnactive().subscribe((data) => {
-        this.dataSource = data;
-        console.log(data)});
-    }
+  
     
 
   }
 
-  activateUser(id:any){
+  deactivateUser(id:any){
 
 this.dialog.open(ActivateUserComponent, {data: id}).afterClosed().subscribe(result => {
-  this.userService.getUsersUnactive().subscribe((data) => {
+  this.userService.getUsersActive().subscribe((data) => {
     this.dataSource = data;});
 });
      
@@ -61,14 +53,14 @@ this.dialog.open(ActivateUserComponent, {data: id}).afterClosed().subscribe(resu
   changeRole(id:any)
   {
    this.dialog.open(ChangeRoleComponent, {data: id}).afterClosed().subscribe(result => {
-    this.userService.getUsersUnactive().subscribe((data) => {
+    this.userService.getUsersActive().subscribe((data) => {
       this.dataSource = data;});
   });
   }
 
   addPermissions(id:any){
     this.dialog.open(AddPermissionsComponent, {data: id}).afterClosed().subscribe(result => {
-      this.userService.getUsersUnactive().subscribe((data) => {
+      this.userService.getUsersActive().subscribe((data) => {
         this.dataSource = data;});
     });
   }

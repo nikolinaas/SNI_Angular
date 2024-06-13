@@ -26,7 +26,7 @@
                 <span *ngIf="!user.permissions.length">User doesn't have any permissions<br/>
                   Add permission</span>
                 <span *ngFor="let perm of user.permissions">{{perm.permissionName}}  </span></td>
-              <td *ngIf="show" mat-cell><button mat-flat-button color="green" (click)="activateUser(user.id)">Activate</button></td>
+              <td *ngIf="show" mat-cell><button mat-flat-button color="green" (click)="deactivateUser(user.id)">Deactivate</button></td>
             </tr>
            
                     

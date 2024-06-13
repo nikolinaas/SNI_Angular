@@ -1,0 +1,14 @@
+.card-title{
+
+    justify-content: center;
+    display: flex;
+    height: 30%;
+
+  }
+  .title{
+    padding: 10px;
+  }
+
+  .button-activate{
+  background: #70D486;  
+  }

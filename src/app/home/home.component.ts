@@ -22,7 +22,7 @@ export class HomeComponent {
     const role = this.authService.getRole();
     if (role == "ADMIN") {
       this.isRoleAdmin = true;
-      this.isRoleModerator = false;
+      this.isRoleModerator = true;
     } else if (role == "MODERATOR") {
       this.isRoleAdmin = false;
       this.isRoleModerator = true;
@@ -35,6 +35,10 @@ export class HomeComponent {
 
   showUsers(event:any) {
     this.router.navigate(['/home/newUsers']);
+  }
+
+  showActiveUsers(){
+    this.router.navigate(['/home/activatedUsers']);
   }
 
 }

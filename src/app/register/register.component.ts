@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -40,7 +41,12 @@ onSubmit() {
 
     }
 
-      this.authService.register(user);
+      this.authService.register(user).subscribe((response) => {
+        console.log(response.status)
+        if(response.status==201)
+        Swal.fire("Success!", "You successfully registered your account!","success");
+        this.registerForm.reset();
+      })
 
   }
   }

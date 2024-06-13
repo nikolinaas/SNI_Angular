@@ -1,0 +1,32 @@
+<div>
+    <mat-card>
+        <mat-card-title class="card-title">
+            <div class="title">Change user permissions</div>
+        </mat-card-title>
+        <mat-card-content *ngIf="loadDone">
+            <form [formGroup]="myForm" (submit)="onSubmit()">
+
+                <section class="example-section" [formGroup]="permissions" id="permissionsSelect">
+                    <h4>Select user permissions:</h4>
+                    <div *ngFor="let perm of permissions">
+
+                        <input value="{{perm.id}}" type="checkbox" formControlName="pepperoni"
+                            (change)="onChange($event,perm)"
+                            [checked]="doesUserHavePermission(perm.id)">{{perm.permissionName}}
+                    </div>
+
+                </section>
+                <br />
+                <div class="button-flex-container">
+                    <button type="submit" mat-raised-button color="secondary">Update permissions</button>
+                </div>
+
+
+
+            </form>
+
+        </mat-card-content>
+
+
+    </mat-card>
+</div>

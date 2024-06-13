@@ -22,6 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { ActivateUserComponent } from './activate-user/activate-user.component';
 import { MatSelectModule } from '@angular/material/select';
+import { AddPermissionsComponent } from './add-permissions/add-permissions.component';
+import { ChangeRoleComponent } from './change-role/change-role.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -29,7 +32,9 @@ import { MatSelectModule } from '@angular/material/select';
         HomeComponent,
         RegisterComponent,
         VerifyCodeComponent,
-        ActivateUserComponent
+        ActivateUserComponent,
+        AddPermissionsComponent,
+        ChangeRoleComponent
     ],
     bootstrap: [AppComponent], imports: [
         BrowserModule,
@@ -47,6 +52,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatListModule,
         MatIconModule,
         MatSelectModule,
+        MatProgressSpinnerModule,
         MatDialogModule], providers: [
         {
             provide: MatDialogRef,

@@ -43,9 +43,12 @@
   
             <button mat-menu-item (click)="showUsers($event)">
               <mat-icon>supervisor_account</mat-icon>
-              <span>Users</span>
+              <span>Unactivated users</span>
             </button>
-  
+            <button mat-menu-item (click)="showActiveUsers()">
+              <mat-icon>supervisor_account</mat-icon>
+              <span>Activated users</span>
+            </button>
           </mat-menu>
           <mat-list-item *ngIf="isRoleModerator" mat-button [matMenuTriggerFor]="moderatorMenu"
             aria-label="Example icon-button with a menu" class="menu-button">
