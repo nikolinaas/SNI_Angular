@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MusicViewComponent } from './music-view.component';
+import { CommentsViewComponent } from './comments-view.component';
 
-describe('MusicViewComponent', () => {
-  let component: MusicViewComponent;
-  let fixture: ComponentFixture<MusicViewComponent>;
+describe('CommentsViewComponent', () => {
+  let component: CommentsViewComponent;
+  let fixture: ComponentFixture<CommentsViewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MusicViewComponent]
+      imports: [CommentsViewComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MusicViewComponent);
+    fixture = TestBed.createComponent(CommentsViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

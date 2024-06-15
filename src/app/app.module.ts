@@ -25,6 +25,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { AddPermissionsComponent } from './add-permissions/add-permissions.component';
 import { ChangeRoleComponent } from './change-role/change-role.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DeactivateUserComponent } from './deactivate-user/deactivate-user.component';
+import { NewCommentsComponent } from './new-comments/new-comments.component';
+import { CommentsViewComponent } from './comments-view/comments-view.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -34,7 +38,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         VerifyCodeComponent,
         ActivateUserComponent,
         AddPermissionsComponent,
-        ChangeRoleComponent
+        ChangeRoleComponent,
+        DeactivateUserComponent,
+        NewCommentsComponent,
+        CommentsViewComponent
     ],
     bootstrap: [AppComponent], imports: [
         BrowserModule,
@@ -53,7 +60,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         MatIconModule,
         MatSelectModule,
         MatProgressSpinnerModule,
+        
         MatDialogModule], providers: [
+            DatePipe,
         {
             provide: MatDialogRef,
             useValue: {}

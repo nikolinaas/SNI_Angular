@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ChangeRoleComponent } from '../change-role/change-role.component';
 import { AddPermissionsComponent } from '../add-permissions/add-permissions.component';
 import { CommonModule } from '@angular/common';
+import { DeactivateUserComponent } from '../deactivate-user/deactivate-user.component';
 
 @Component({
   selector: 'app-active-users',
@@ -42,7 +43,7 @@ export class ActiveUsersComponent {
 
   deactivateUser(id:any){
 
-this.dialog.open(ActivateUserComponent, {data: id}).afterClosed().subscribe(result => {
+this.dialog.open(DeactivateUserComponent, {data: id}).afterClosed().subscribe(result => {
   this.userService.getUsersActive().subscribe((data) => {
     this.dataSource = data;});
 });

@@ -8,13 +8,20 @@ import { ModeratorCanActivateService } from './canactivate/ModeratorCanActivate/
 import { NewUsersComponent } from './new-users/new-users.component';
 import { AdminCanActivateService } from './canactivate/AdminCanActivate/admin-can-activate.service';
 import { ActiveUsersComponent } from './active-users/active-users.component';
+import { NewCommentsComponent } from './new-comments/new-comments.component';
+import { CommentsViewComponent } from './comments-view/comments-view.component';
+import { UserCanActivateService } from './canactivate/UserCanActivate/user-can-activate.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LogInComponent },
-  { path: 'home', component: HomeComponent, canActivate: [IsLogedInService], children: [
+  { path: 'home', component: HomeComponent, canActivate: [IsLogedInService], 
+  children: [
     { path: 'newUsers', component: NewUsersComponent, canActivate: [AdminCanActivateService] },
-    { path: 'activatedUsers', component: ActiveUsersComponent, canActivate: [AdminCanActivateService] }
+    { path: 'activatedUsers', component: ActiveUsersComponent, canActivate: [AdminCanActivateService] },
+    { path: 'newComments', component: NewCommentsComponent, canActivate:[ModeratorCanActivateService] },
+    { path: 'comments/:id', component: CommentsViewComponent, canActivate:[UserCanActivateService] }
+
 ] },
   { path: 'register', component: RegisterComponent }
 

@@ -1,0 +1,29 @@
+<div class="content">
+
+
+    <div class="newComments">
+    
+        <mat-card *ngFor="let comment of comments" class="cardStyle">
+            <mat-card-title class="title">
+                {{comment.themeByThemeIdThemeName}}
+    
+                <div>
+                    <button mat-button *ngIf="banButtonVisible" class="banButton"><mat-icon>highlight_off</mat-icon>Ban</button>
+                </div>
+                   
+                
+            </mat-card-title>
+          
+            <mat-card-content>
+            <div class="title1">
+              <div>Comment by:  {{comment.userByUserIdName}}
+                {{comment.userByUserIdSurname}}</div> 
+                <div>Date: {{transform(comment.date, 'yyyy-MM-dd hh:mm')}}</div> 
+            </div>   
+               Comment content:  {{comment.text}}
+            </mat-card-content>
+    
+        </mat-card>
+    </div>
+    </div>
+    

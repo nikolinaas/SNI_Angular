@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CultureViewComponent } from './culture-view.component';
+import { AddCommentComponent } from './add-comment.component';
 
-describe('CultureViewComponent', () => {
-  let component: CultureViewComponent;
-  let fixture: ComponentFixture<CultureViewComponent>;
+describe('AddCommentComponent', () => {
+  let component: AddCommentComponent;
+  let fixture: ComponentFixture<AddCommentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CultureViewComponent]
+      imports: [AddCommentComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CultureViewComponent);
+    fixture = TestBed.createComponent(AddCommentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

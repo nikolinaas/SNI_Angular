@@ -1,0 +1,64 @@
+.content{
+    vertical-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    .newComments{
+        justify-content: center;
+        width: 80%;
+        height: 80%;
+        overflow-y: auto;
+        
+    }
+    .cardStyle{
+        background-color:#9af7ae ;
+        margin: 5px;
+    }
+    mat-card:hover{
+      background-color:#b5f8c4 ;
+    }
+    .upPart{
+        display: flex;
+        height: 20%;
+    }
+    ::-webkit-scrollbar {
+        height: 5px;
+        opacity: 0.5;
+        width: 8px;
+        background-color: transparent;
+      }
+    
+      ::-webkit-scrollbar-thumb {
+        opacity: 0.5;
+        width: 8px;
+        background-color: #a5d4bd;
+        border-radius: 10px;
+    
+      }
+      .title1{
+        display: flex;
+        font-size: larger;
+        display: flex;
+        justify-content: space-between;
+      }
+      .title{
+        background-color: #9cefae;
+        justify-content: space-between;
+        display: flex;
+        margin: 30px;
+      }
+      mat-card-content{
+        
+        margin: 10px;
+      }
+      .approveButton{
+        color: white;
+        background-color: #5dd477;
+      }
+      .banButton{
+        background-color: #d45d5d;
+        color: white;
+      }

@@ -40,5 +40,13 @@ export class HomeComponent {
   showActiveUsers(){
     this.router.navigate(['/home/activatedUsers']);
   }
+  showUnapprovedComments(){
+    this.router.navigate(['/home/newComments']);
+  }
 
+  showComments(id:any){
+   this.router.navigate(['/home/comments',id]).then(() => {
+    window.location.reload();
+  });
+  }
 }

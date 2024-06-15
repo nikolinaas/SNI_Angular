@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScienceViewComponent } from './science-view.component';
+import { DeactivateUserComponent } from './deactivate-user.component';
 
-describe('ScienceViewComponent', () => {
-  let component: ScienceViewComponent;
-  let fixture: ComponentFixture<ScienceViewComponent>;
+describe('DeactivateUserComponent', () => {
+  let component: DeactivateUserComponent;
+  let fixture: ComponentFixture<DeactivateUserComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScienceViewComponent]
+      imports: [DeactivateUserComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ScienceViewComponent);
+    fixture = TestBed.createComponent(DeactivateUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

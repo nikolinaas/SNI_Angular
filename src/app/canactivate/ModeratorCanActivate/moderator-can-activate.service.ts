@@ -14,11 +14,11 @@ export class ModeratorCanActivateService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
 
    
-      if(this.authService.getRole()=="MODERATOR"){
+      if(this.authService.getRole()=="MODERATOR" || this.authService.getRole()=="ADMIN"){
         return true;
       }
       
-      return this.router.parseUrl('/unauthorized');
+      return this.router.parseUrl('/home');
     }
 
   

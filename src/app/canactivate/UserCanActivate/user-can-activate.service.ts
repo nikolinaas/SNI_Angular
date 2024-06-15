@@ -11,7 +11,7 @@ export class UserCanActivateService implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): MaybeAsync<GuardResult> {
    
-    if(this.authService.getRole()=="USER"){
+    if(this.authService.getRole()=="USER" || this.authService.getRole()=="MODERATOR" || this.authService.getRole()=="ADMIN"){
       return true;
     }else{
       return this.router.parseUrl('/unauthorized');

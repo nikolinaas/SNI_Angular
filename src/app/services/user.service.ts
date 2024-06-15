@@ -10,6 +10,7 @@ export class UserService {
   private getActiveUsersURL: string = "http://localhost:9000/api/users/active";
   private getUserByIdURL: string = "http://localhost:9000/api/users/";
   private activateUserByIdURL: string = "http://localhost:9000/api/users/activateUser/";
+  private deactivateUserByIdURL: string = "http://localhost:9000/api/users/deactivateUser/";
   
   private changeUsersPermissionsByIdURL: string = "http://localhost:9000/api/users/changePermissions/";
   constructor(private http: HttpClient) { }
@@ -45,6 +46,11 @@ export class UserService {
   activateUser(user: any, id: any) {
 
     return this.http.put(this.activateUserByIdURL + id, user, { headers: this.getHeaders(), observe: 'response' })
+
+  }
+  deactivateUser(user: any, id: any) {
+
+    return this.http.put(this.deactivateUserByIdURL + id, user, { headers: this.getHeaders(), observe: 'response' })
 
   }
 

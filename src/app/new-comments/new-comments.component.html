@@ -1,1 +1,28 @@
-<p>new-comments works!</p>
+<div class="content">
+
+
+<div class="newComments">
+
+    <mat-card *ngFor="let comment of comments" class="cardStyle">
+        <mat-card-title class="title">
+            {{comment.themeByThemeIdThemeName}}
+
+            <div>
+                <button mat-button class="approveButton" (click)="approveComment(comment)"><mat-icon>check_circle</mat-icon>Approve</button>
+                <button mat-button class="banButton"><mat-icon>highlight_off</mat-icon>Ban</button>
+            </div>
+               
+            
+        </mat-card-title>
+      
+        <mat-card-content>
+        <div class="title1">
+            Comment by:  {{comment.userByUserIdName}}
+            {{comment.userByUserIdSurname}}
+        </div>   
+           Comment content:  {{comment.text}}
+        </mat-card-content>
+
+    </mat-card>
+</div>
+</div>

@@ -31,19 +31,13 @@ export class NewUsersComponent implements OnInit{
   constructor(private userService:UserService,public dialogRef: MatDialogRef<ActivateUserComponent>, private dialog: MatDialog, private authService:AuthenticationService, private route:ActivatedRoute){}
 
   ngOnInit(){
-    this.isNewUsers = this.route.snapshot.paramMap.get("id");
-    console.log(this.isNewUsers)
-    if (this.isNewUsers==0) {
-      console.log("aktivniiiiiiiiiiiii")
-     this.show = false;
-      this.userService.getUsersActive().subscribe((data) => {
-        this.dataSource = data;
-        console.log(data)});
-    }else{
+ 
+
+ 
       this.userService.getUsersUnactive().subscribe((data) => {
         this.dataSource = data;
         console.log(data)});
-    }
+   
     
 
   }
