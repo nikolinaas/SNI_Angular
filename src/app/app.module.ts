@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { MatCardModule} from '@angular/material/card';
-import { MatFormFieldModule} from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
@@ -29,6 +29,7 @@ import { DeactivateUserComponent } from './deactivate-user/deactivate-user.compo
 import { NewCommentsComponent } from './new-comments/new-comments.component';
 import { CommentsViewComponent } from './comments-view/comments-view.component';
 import { DatePipe } from '@angular/common';
+import { AddCommentComponent } from './add-comment/add-comment.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -41,7 +42,8 @@ import { DatePipe } from '@angular/common';
         ChangeRoleComponent,
         DeactivateUserComponent,
         NewCommentsComponent,
-        CommentsViewComponent
+        CommentsViewComponent,
+        AddCommentComponent
     ],
     bootstrap: [AppComponent], imports: [
         BrowserModule,
@@ -61,12 +63,14 @@ import { DatePipe } from '@angular/common';
         MatSelectModule,
         MatProgressSpinnerModule,
         
+        
         MatDialogModule], providers: [
             DatePipe,
         {
             provide: MatDialogRef,
             useValue: {}
         },
+        {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
         provideHttpClient(withInterceptorsFromDi()),
     ] })
 export class AppModule { }

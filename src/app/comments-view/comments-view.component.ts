@@ -3,6 +3,8 @@ import { CommentService } from '../services/comment.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { DatePipe } from '@angular/common';
+import { AddCommentComponent } from '../add-comment/add-comment.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-comments-view',
@@ -14,7 +16,7 @@ export class CommentsViewComponent {
 
   comments: any;
   banButtonVisible = false;
-  constructor(private datePipe: DatePipe,private commentService: CommentService, private route:ActivatedRoute, private authService:AuthenticationService) {
+  constructor(private datePipe: DatePipe,private commentService: CommentService, private route:ActivatedRoute, private authService:AuthenticationService, public dialogRef: MatDialogRef<AddCommentComponent>, private dialog: MatDialog ) {
 
   }
 
@@ -40,5 +42,13 @@ export class CommentsViewComponent {
 
   transform(arg0: any,arg1: string) {
    return this.datePipe.transform(arg0,arg1);
+    }
+
+    showComment(comment:any){
+      
+    }
+
+    addComment(){
+      this.dialog.open(AddCommentComponent);
     }
 }

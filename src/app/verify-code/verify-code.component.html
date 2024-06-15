@@ -2,7 +2,7 @@
 <mat-dialog-content>Enter the verification code received via email.
 
     <form [formGroup]="verifyForm" (submit)="onSubmit()"> 
-        <mat-form-field><input type="text" formControlName="code"  [ngClass]="{'is-invalid':submitted && verifyForm.controls?.['code']?.errors}"></mat-form-field>
+        <mat-form-field><input type="text" matInput formControlName="code"  [ngClass]="{'is-invalid':submitted && verifyForm.controls?.['code']?.errors}"></mat-form-field>
         
         <button mat-raised-button color="primary" type="submit">Next</button>
     </form>

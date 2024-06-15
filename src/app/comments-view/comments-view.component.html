@@ -1,14 +1,29 @@
 <div class="content">
-
+<div class="buttons">
+<div class="searchDiv">
+     <form class="searchForm">
+        <mat-form-field class="searchField">
+            <mat-label></mat-label>
+            <input class="inputSearch" type="text" matInput MatFormFieldControl formControlName="searchText" placeholder="Search comment by user or comment content"/>
+        </mat-form-field>
+        <button mat-button class="searchButton" type="submit"><mat-icon>search</mat-icon>Search</button>
+        
+    </form> 
+</div>
+<div class="divAdd">
+    <button mat-button class="addButton" (click)="addComment()">Add comment</button>
+</div>
+</div>
 
     <div class="newComments">
     
-        <mat-card *ngFor="let comment of comments" class="cardStyle">
+        <mat-card *ngFor="let comment of comments" class="cardStyle" (click)="showComment(comment)">
             <mat-card-title class="title">
                 {{comment.themeByThemeIdThemeName}}
     
                 <div>
                     <button mat-button *ngIf="banButtonVisible" class="banButton"><mat-icon>highlight_off</mat-icon>Ban</button>
+                    <button mat-button *ngIf="banButtonVisible" class="banButton"><mat-icon>delete_forever</mat-icon>Delete</button>
                 </div>
                    
                 
