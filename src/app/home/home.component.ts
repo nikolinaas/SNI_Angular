@@ -49,4 +49,9 @@ export class HomeComponent {
     window.location.reload();
   });
   }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

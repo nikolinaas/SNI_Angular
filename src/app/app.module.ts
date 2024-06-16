@@ -30,6 +30,9 @@ import { NewCommentsComponent } from './new-comments/new-comments.component';
 import { CommentsViewComponent } from './comments-view/comments-view.component';
 import { DatePipe } from '@angular/common';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { ShowCommentComponent } from './show-comment/show-comment.component';
+import { AuthConfigModule } from './auth/auth-config.module';
+import { Oauth2Component } from './oauth2/oauth2.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -43,7 +46,9 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
         DeactivateUserComponent,
         NewCommentsComponent,
         CommentsViewComponent,
-        AddCommentComponent
+        AddCommentComponent,
+        ShowCommentComponent,
+        Oauth2Component
     ],
     bootstrap: [AppComponent], imports: [
         BrowserModule,
@@ -64,7 +69,8 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
         MatProgressSpinnerModule,
         
         
-        MatDialogModule], providers: [
+        MatDialogModule,
+                          AuthConfigModule], providers: [
             DatePipe,
         {
             provide: MatDialogRef,

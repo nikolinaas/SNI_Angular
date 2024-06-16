@@ -39,7 +39,6 @@ export class AddPermissionsComponent {
 
   onSubmit() {
 
-    console.log(this.updatedPermissions);
 
     var editedUser = {
       "id": this.user.id,
@@ -57,7 +56,6 @@ export class AddPermissionsComponent {
 
       this.userService.changePermissions(editedUser, this.data).subscribe(response=>{
 
-        console.log(response);
         this.dialogRef.close();
       })
 
@@ -72,7 +70,6 @@ export class AddPermissionsComponent {
 
   onChange(event: any, permission: any) {
 
-    console.log(event.currentTarget.checked);
     if (event.currentTarget.checked) {
       if (!this.updatedPermissions?.find((e: { id: any; }) => e.id === permission.id))
         this.updatedPermissions?.push(permission);

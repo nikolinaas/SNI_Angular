@@ -1,35 +1,35 @@
 <div class="content">
 <div class="buttons">
 <div class="searchDiv">
-     <form class="searchForm">
-        <mat-form-field class="searchField">
+     <form class="searchForm" [formGroup]="searchForm">
+        <mat-form-field class="searchField" >
             <mat-label></mat-label>
             <input class="inputSearch" type="text" matInput MatFormFieldControl formControlName="searchText" placeholder="Search comment by user or comment content"/>
         </mat-form-field>
-        <button mat-button class="searchButton" type="submit"><mat-icon>search</mat-icon>Search</button>
+        <button mat-button class="searchButton" (click)="searchButton()" type="submit"><mat-icon>search</mat-icon>Search</button>
         
     </form> 
 </div>
 <div class="divAdd">
-    <button mat-button class="addButton" (click)="addComment()">Add comment</button>
+    <button mat-button class="addButton" *ngIf="addAvailable" (click)="addComment()"><mat-icon>add</mat-icon>Add comment</button>
 </div>
 </div>
 
     <div class="newComments">
     
-        <mat-card *ngFor="let comment of comments" class="cardStyle" (click)="showComment(comment)">
+        <mat-card *ngFor="let comment of comments" class="cardStyle" >
             <mat-card-title class="title">
                 {{comment.themeByThemeIdThemeName}}
     
                 <div>
-                    <button mat-button *ngIf="banButtonVisible" class="banButton"><mat-icon>highlight_off</mat-icon>Ban</button>
-                    <button mat-button *ngIf="banButtonVisible" class="banButton"><mat-icon>delete_forever</mat-icon>Delete</button>
+                    <button mat-button  (click)="banComment(comment)" *ngIf="banButtonVisible" class="banButton"><mat-icon>highlight_off</mat-icon>Ban</button>
+                    <button mat-button *ngIf="deleteAvailable && usersId==comment.userId" class="banButton" (click)="deleteComment()"><mat-icon>delete_forever</mat-icon>Delete</button>
                 </div>
                    
                 
             </mat-card-title>
           
-            <mat-card-content>
+            <mat-card-content (click)="showComment(comment)">
             <div class="title1">
               <div>Comment by:  {{comment.userByUserIdName}}
                 {{comment.userByUserIdSurname}}</div> 

@@ -1,1 +1,26 @@
-<p>show-comment works!</p>
+
+<div class="login-form-flex">
+    <mat-card>
+            <mat-card-title class="card-title">
+                  <div class="title"> Edit comment</div> 
+            </mat-card-title>
+            <mat-card-content>
+                   <form [formGroup]="commentForm"  (submit)="onSubmit()">
+                   <mat-form-field>
+                    <textarea matInput MatFormFieldControl formControlName="textComment" placeholder="Comment text"></textarea>
+                   </mat-form-field>
+                   
+                            <br/>
+<div class="button-flex-container">
+    <button  type="submit" mat-button class="addButton" >Edit comment</button>
+</div>
+                                    
+                          
+                           
+                    </form>
+                  
+            </mat-card-content>
+
+
+    </mat-card>
+</div>

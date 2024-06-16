@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommentService } from '../services/comment.service';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { ShowCommentComponent } from '../show-comment/show-comment.component';
 
 @Component({
   selector: 'app-new-comments',
@@ -11,7 +13,7 @@ export class NewCommentsComponent {
 
   comments: any;
 
-  constructor(private commentService: CommentService) {
+  constructor(private commentService: CommentService, private dialog:MatDialog) {
 
   }
 
@@ -49,5 +51,8 @@ export class NewCommentsComponent {
     }));
 
 
+  }
+  showComment(comment:any){
+    this.dialog.open(ShowCommentComponent,{data:comment});
   }
 }

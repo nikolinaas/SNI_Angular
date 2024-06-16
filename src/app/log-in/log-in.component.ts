@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { VerifyCodeComponent } from '../verify-code/verify-code.component';
 import Swal from 'sweetalert2';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-log-in',
@@ -13,6 +14,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
+  private readonly oidcSecurityService = inject(OidcSecurityService);
   navigate() {
     this.router.navigate(['/register']);
   }
@@ -32,7 +34,10 @@ export class LogInComponent {
   }
 
   loginClick() {
-
+   this.oidcSecurityService.authorize(); 
+  //  this.authService.loginOauth2("token").subscribe(resp => {
+        
+  //  })
   }
 
   onSubmit() {

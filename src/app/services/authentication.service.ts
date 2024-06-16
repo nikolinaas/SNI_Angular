@@ -12,6 +12,7 @@ export class AuthenticationService {
   private registerUserURL: string = "http://localhost:9000/api/authentication/register";
   private loginUserURL: string = "http://localhost:9000/api/authentication/login";
   private verifyCodeURL: string = "http://localhost:9000/api/authentication/verifyCode/";
+  private oauth2URL: string = "http://localhost:9000/api/authentication/oauth2";
 
   constructor(private http: HttpClient) { }
 
@@ -51,6 +52,10 @@ export class AuthenticationService {
     return decodedToken.role;
   }
 
+  getId(){
+    const decodedToken = this.decodeToken();
+    return decodedToken.jti;
+  }
   isExpired() {
     var current_time = new Date().getTime() / 1000
     const expDate = this.decodeToken().exp;
@@ -71,6 +76,10 @@ export class AuthenticationService {
   }
 
   logout() {
-    sessionStorage.removeItem('token');
+    sessionStorage.removeItem("token");
+  }
+
+  loginOauth2(tokenId:any){
+   return this.http.post(this.oauth2URL,tokenId);
   }
 }

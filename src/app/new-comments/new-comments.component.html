@@ -3,7 +3,7 @@
 
 <div class="newComments">
 
-    <mat-card *ngFor="let comment of comments" class="cardStyle">
+    <mat-card *ngFor="let comment of comments" class="cardStyle" (click)="showComment(comment)">
         <mat-card-title class="title">
             {{comment.themeByThemeIdThemeName}}
 

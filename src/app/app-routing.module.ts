@@ -11,6 +11,7 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
 import { NewCommentsComponent } from './new-comments/new-comments.component';
 import { CommentsViewComponent } from './comments-view/comments-view.component';
 import { UserCanActivateService } from './canactivate/UserCanActivate/user-can-activate.service';
+import { Oauth2Component } from './oauth2/oauth2.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -23,7 +24,8 @@ const routes: Routes = [
     { path: 'comments/:id', component: CommentsViewComponent, canActivate:[UserCanActivateService] }
 
 ] },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'oauth2', component: Oauth2Component }
 
 
 

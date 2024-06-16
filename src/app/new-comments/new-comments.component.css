@@ -55,3 +55,6 @@ vertical-align: center;
     background-color: #d45d5d;
     color: white;
   }
+  mat-card:hover {
+    background-color: #b5f8c4;
+  }
