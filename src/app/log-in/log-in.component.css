@@ -44,3 +44,12 @@
   .title{
     padding: 10px;
   }
+  .spinner {
+    display: block;
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    margin-top: -25px; 
+    margin-right: -20px; 
+     /* or: left: 50%; */
+  }

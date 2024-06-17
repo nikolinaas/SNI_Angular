@@ -22,7 +22,7 @@ export class LogInComponent {
 
 
   myForm: any;
-
+  showSpinner = false;
 
 
   constructor(private router: Router, private authService: AuthenticationService, public dialogRef: MatDialogRef<VerifyCodeComponent>, private dialog: MatDialog) {
@@ -41,20 +41,22 @@ export class LogInComponent {
   }
 
   onSubmit() {
+    this.showSpinner = true;
     const logReq = {
 
       username: this.myForm.get('username').value,
       password: this.myForm.get('password').value
 
     }
-    
+   
     this.authService.login(logReq).subscribe((user) => {
-      console.log(user);
+      console.log("---------------" + user);
       if (user != null) {
+        this.showSpinner = false;
         this.dialog.open(VerifyCodeComponent, { disableClose: true, data: user });
       } 
       else{
-        Swal.fire("Registracija Vašeg naloga nije odobrena!", "Pokušajte kasnije nakon što administrator odobri, bićete obaviješteni putem email-a.", "error");
+        Swal.fire("Registartion of your account is not approved!", "Try again later when your registratin is approved, you will be informed via email.", "error");
       }
     },(error) => {
       if(error.status===403){
