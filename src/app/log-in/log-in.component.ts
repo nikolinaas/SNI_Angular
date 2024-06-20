@@ -35,9 +35,6 @@ export class LogInComponent {
 
   loginClick() {
    this.oidcSecurityService.authorize(); 
-  //  this.authService.loginOauth2("token").subscribe(resp => {
-        
-  //  })
   }
 
   onSubmit() {

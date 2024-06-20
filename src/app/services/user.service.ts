@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  private getUnactiveUsersURL: string = "http://localhost:9000/api/users/unactive";
-  private getActiveUsersURL: string = "http://localhost:9000/api/users/active";
-  private getUserByIdURL: string = "http://localhost:9000/api/users/";
-  private activateUserByIdURL: string = "http://localhost:9000/api/users/activateUser/";
-  private deactivateUserByIdURL: string = "http://localhost:9000/api/users/deactivateUser/";
+  private getUnactiveUsersURL: string = "https://localhost:443/api/users/unactive";
+  private getActiveUsersURL: string = "https://localhost:443/api/users/active";
+  private getUserByIdURL: string = "https://localhost:443/api/users/";
+  private activateUserByIdURL: string = "https://localhost:443/api/users/activateUser/";
+  private deactivateUserByIdURL: string = "https://localhost:443/api/users/deactivateUser/";
   
-  private changeUsersPermissionsByIdURL: string = "http://localhost:9000/api/users/changePermissions/";
+  private changeUsersPermissionsByIdURL: string = "https://localhost:443/api/users/changePermissions/";
   constructor(private http: HttpClient) { }
 
 

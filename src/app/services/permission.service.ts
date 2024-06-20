@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class PermissionService {
 
-  private getPermissionsURL = "http://localhost:9000/api/permissions";
+  private getPermissionsURL = "https://localhost:443/api/permissions";
   constructor(private http:HttpClient) { 
 
   }

@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class CommentService {
 
-  private getUnApprovedCommentsURL: string = "http://localhost:9000/api/comments/notApproved";
-  private getApprovedCommentsByThemeIdURL: string = "http://localhost:9000/api/comments/approved/";
-  private getCommentByIdURL: string = "http://localhost:9000/api/comments/";
-  private createCommentURL: string = "http://localhost:9000/api/comments"
-  private editCommentURL: string = "http://localhost:9000/api/comments/"
-  private approveCommentURL: string = "http://localhost:9000/api/comments/approveComment/";
+  private getUnApprovedCommentsURL: string = "https://localhost:443/api/comments/notApproved";
+  private getApprovedCommentsByThemeIdURL: string = "https://localhost:443/api/comments/approved/";
+  private getCommentByIdURL: string = "https://localhost:443/api/comments/";
+  private createCommentURL: string = "https://localhost:443/api/comments"
+  private editCommentURL: string = "https://localhost:443/api/comments/"
+  private approveCommentURL: string = "https://localhost:443/api/comments/approveComment/";
   constructor(private http: HttpClient) { }
 
   getHeaders() {

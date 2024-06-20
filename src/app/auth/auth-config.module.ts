@@ -6,7 +6,7 @@ import { AuthModule } from 'angular-auth-oidc-client';
     imports: [AuthModule.forRoot({
         config: {
             authority: 'https://accounts.google.com',
-            redirectUrl: "http://localhost:4200/oauth2",
+            redirectUrl: "https://localhost:4200/oauth2",
             postLogoutRedirectUri: window.location.origin,
             clientId: "426117424339-6mctmdqse68m8sl9395gj69j7bq8bohv.apps.googleusercontent.com",
             scope: 'openid email profile', // 'openid profile ' + your scopes

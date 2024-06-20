@@ -9,10 +9,10 @@ import * as jwt_decode from 'jwt-decode';
 export class AuthenticationService {
 
 
-  private registerUserURL: string = "http://localhost:9000/api/authentication/register";
-  private loginUserURL: string = "http://localhost:9000/api/authentication/login";
-  private verifyCodeURL: string = "http://localhost:9000/api/authentication/verifyCode/";
-  private oauth2URL: string = "http://localhost:9000/api/authentication/oauth2";
+  private registerUserURL: string = "https://localhost:443/api/authentication/register";
+  private loginUserURL: string = "https://localhost:443/api/authentication/login";
+  private verifyCodeURL: string = "https://localhost:443/api/authentication/verifyCode/";
+  private oauth2URL: string = "https://localhost:443/api/authentication/oauth2";
 
   constructor(private http: HttpClient) { }
 
