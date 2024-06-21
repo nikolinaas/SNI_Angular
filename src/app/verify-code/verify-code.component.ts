@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import swal from 'sweetalert2';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-verify-code',
@@ -25,7 +26,12 @@ export class VerifyCodeComponent {
 
   onSubmit() {
     console.log(this.data);
-    this.authService.verifyCode(this.verifyForm.get('code').value, this.data.id).subscribe((res) => {
+
+    var codeReq = {
+      code: this.verifyForm.get('code').value
+    }
+
+    this.authService.verifyCode(codeReq, this.data.id).subscribe((res) => {
       console.log(res)
       if (res !== null) {
         this.router.navigate(['/home']);
@@ -37,7 +43,7 @@ export class VerifyCodeComponent {
         swal.fire("","Kod koji ste unijeli nije vazeci!", "error");
         //dodati neki error
       }
-    })
+    },(err:HttpErrorResponse)=>{if(err.status==400)this.router.navigate(['forbidden']);})
 
   }
 

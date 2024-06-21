@@ -12,20 +12,24 @@ import { NewCommentsComponent } from './new-comments/new-comments.component';
 import { CommentsViewComponent } from './comments-view/comments-view.component';
 import { UserCanActivateService } from './canactivate/UserCanActivate/user-can-activate.service';
 import { Oauth2Component } from './oauth2/oauth2.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'login', component: LogInComponent },
-  { path: 'home', component: HomeComponent, canActivate: [IsLogedInService], 
-  children: [
-    { path: 'newUsers', component: NewUsersComponent, canActivate: [AdminCanActivateService] },
-    { path: 'activatedUsers', component: ActiveUsersComponent, canActivate: [AdminCanActivateService] },
-    { path: 'newComments', component: NewCommentsComponent, canActivate:[ModeratorCanActivateService] },
-    { path: 'comments/:id', component: CommentsViewComponent, canActivate:[UserCanActivateService] }
+  {
+    path: 'home', component: HomeComponent, canActivate: [IsLogedInService],
+    children: [
+      { path: 'newUsers', component: NewUsersComponent, canActivate: [AdminCanActivateService] },
+      { path: 'activatedUsers', component: ActiveUsersComponent, canActivate: [AdminCanActivateService] },
+      { path: 'newComments', component: NewCommentsComponent, canActivate: [ModeratorCanActivateService] },
+      { path: 'comments/:id', component: CommentsViewComponent, canActivate: [UserCanActivateService] }
 
-] },
+    ]
+  },
   { path: 'register', component: RegisterComponent },
-  { path: 'oauth2', component: Oauth2Component }
+  { path: 'oauth2', component: Oauth2Component },
+  { path: 'forbidden', component: ForbiddenComponent }
 
 
 

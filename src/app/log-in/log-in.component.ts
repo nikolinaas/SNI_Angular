@@ -58,7 +58,9 @@ export class LogInComponent {
     },(error) => {
       if(error.status===403){
         Swal.fire("Wrong credentials", "Credentials you entered are wrong, try again", "error");
-      }
+      }else if(error.status==400){
+        this.router.navigate(['forbidden']);
+        this.authService.logout();}
   })
 
   }

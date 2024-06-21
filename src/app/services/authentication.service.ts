@@ -79,7 +79,12 @@ export class AuthenticationService {
     sessionStorage.removeItem("token");
   }
 
-  loginOauth2(tokenId:any){
-   return this.http.post(this.oauth2URL,tokenId);
+  loginOauth2(tokenIdReq:any){
+
+    var tokenReq = {
+      tokenId : tokenIdReq
+    }
+
+   return this.http.post(this.oauth2URL,tokenReq);
   }
 }
